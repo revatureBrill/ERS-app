@@ -4,6 +4,8 @@ const views = {
     chatView: document.getElementById('chat-module')
 }
 
+const server = 'http://localhost:8080/ChatApp';
+
 const transitionView = function(view) {
     const views = document.querySelectorAll('.module');
     const alerts = document.querySelectorAll('.alert');
@@ -32,12 +34,12 @@ const signup = function() {
     const password = document.getElementById('signup-password');
     const alert = document.getElementById('signup-alert');
     const payload = {
-        username: username,
-        password: password
+        username: username.value,
+        password: password.value
     };
 
     const xhr = new XMLHttpRequest();
-    xhr.open('post', 'localhost:8080/signup');
+    xhr.open('post', `${server}/signup`);
     
     xhr.addEventListener('load', () => {
         alert.innerText = 'Signup complete!';
@@ -47,7 +49,7 @@ const signup = function() {
         alert.innerText = 'Something went wrong :(';
     });
     
-    xhr.send();
+    xhr.send(JSON.stringify(payload));
 }
 
 const login = function() {
@@ -60,7 +62,7 @@ const login = function() {
     };
 
     const xhr = new XMLHttpRequest();
-    xhr.open('post', 'localhost:8080/login');
+    xhr.open('post', `${server}/login`);
     
     xhr.addEventListener('load', () => {
     })
@@ -69,7 +71,7 @@ const login = function() {
         alert.innerText = 'Something went wrong :(';
     });
     
-    xhr.send();
+    xhr.send(JSON.stringify(payload));
 }
 
 document.getElementById('login-submit').addEventListener('click', login);
