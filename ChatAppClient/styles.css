@@ -1,0 +1,43 @@
+.module {
+    display: none;
+    margin: 10px auto;
+    padding: 10px;
+    border: 1px solid grey;
+    width: 600px;
+}
+
+.module.active-module {
+    display: block;
+}
+
+h2 {
+    text-align: center;
+}
+
+input {
+    margin: 5px;
+}
+
+.row-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+input[type="text"], input[type="password"] {
+    flex-grow: 1;
+}
+
+#signup-nav, #login-nav {
+    padding: 3px;
+    border: 1px solid grey;
+    text-align: center;
+    background: #EEE;
+    margin: 5px;
+    cursor: pointer;
+}
+
+#signup-nav:hover, #login-nav:hover {
+    background: #EFEFEF;
+    border-color: lightgrey;
+    color: #333;
+}
