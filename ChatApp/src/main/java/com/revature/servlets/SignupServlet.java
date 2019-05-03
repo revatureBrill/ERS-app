@@ -18,6 +18,7 @@ public class SignupServlet extends DefaultServlet {
 
 	@Override
 	public void service(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+		response.addHeader("Access-Control-Allow-Headers", "content-type");
 		response.addHeader("Access-Control-Allow-Origin", request.getHeader("Origin"));
 		super.service(request, response);
 	}
@@ -30,8 +31,14 @@ public class SignupServlet extends DefaultServlet {
 		Credentials credentials = om.readValue(request.getInputStream(), Credentials.class);
 
 		// Pass credentials to service
-		signupService.signup(credentials);
+		boolean result = signupService.signup(credentials);
 
+		if (result) {
+			response.setStatus(200);
+		} else {
+			response.setStatus(409);
+		}
+		
 	}
 
 }

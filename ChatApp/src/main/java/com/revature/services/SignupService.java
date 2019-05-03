@@ -7,14 +7,14 @@ public class SignupService {
 
 	private SignupDao signupDao = new SignupDao();
 	
-	public void signup(Credentials credentials) {
+	public boolean signup(Credentials credentials) {
 		// Ensure that username meets username standards
 		
 		// Ensure that password meets password standards
 		
 		// Check if username already exists
 
-		signupDao.Signup(credentials);
+		return signupDao.Signup(credentials);
 		
 		
 	}
