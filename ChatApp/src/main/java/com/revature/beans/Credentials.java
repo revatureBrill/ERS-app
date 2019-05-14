@@ -3,7 +3,6 @@ package com.revature.beans;
 public class Credentials {
 	private String username;
 	
-	// Password should generally be treated as a char array
 	private String password;
 
 	public String getUsername() {
